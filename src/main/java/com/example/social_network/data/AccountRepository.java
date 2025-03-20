@@ -16,4 +16,25 @@ public class AccountRepository {
             throw new RuntimeException("Account not found");
         }
     }
+
+    public void editFirstName(String newName, String email){
+        Account newAccount = db.get(email);
+        newAccount.setFirstName(newName);
+        db.remove(email);
+        db.put(email, newAccount);
+    }
+
+    public void editLastName(String newName, String email){
+        Account newAccount = db.get(email);
+        newAccount.setLastName(newName);
+        db.remove(email);
+        db.put(email, newAccount);
+    }
+
+    public void editPassword(String newPassword, String email){
+        Account newAccount = db.get(email);
+        newAccount.setPassword(newPassword);
+        db.remove(email);
+        db.put(email, newAccount);
+    }
 }

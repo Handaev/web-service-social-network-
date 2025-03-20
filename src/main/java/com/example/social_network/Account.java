@@ -6,6 +6,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.util.Calendar;
+import java.util.Date;
+
 @Data
 public class Account {
     private String id;
@@ -22,5 +25,7 @@ public class Account {
     @Size(min = 5, max = 20,
             message = "Password must be between 5 and 120 characters!")
     private String password;
+
+    private Date dateRegistration = Calendar.getInstance().getTime();
 
 }
