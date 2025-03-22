@@ -1,6 +1,5 @@
 package com.example.social_network;
 
-
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -23,7 +22,7 @@ public class Account {
     private String email;
 
     @Size(min = 5, max = 20,
-            message = "Password must be between 5 and 120 characters!")
+            message = "Password must be between 5 and 20 characters!")
     private String password;
 
     private Date dateRegistration = Calendar.getInstance().getTime();
