@@ -1,6 +1,6 @@
 package com.example.social_network;
 
-import com.example.social_network.config.HibernateConfig;
+import com.example.social_network.config.JpaConfig;
 import com.example.social_network.entities.User;
 import com.example.social_network.repository.RegistrationDAO;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -9,19 +9,19 @@ import java.time.LocalDateTime;
 
 public class MainApp {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HibernateConfig.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JpaConfig.class);
         RegistrationDAO studentDao = context.getBean(RegistrationDAO.class);
 
         User user = new User();
 //        user.setId(12L);
         user.setFirstName("John"); // Установите значение для firstName
         user.setLastName("Doe");
-        user.setEmail("john2345oe@example.com");
+        user.setEmail("asdfghjk.ghdfsdfghmghg@example.com");
         user.setPassword("password123");
         user.setAboutMe("Software Developer");
 //        user.setAvatar("C:\\Users\\Lenovo\\Documents\\IdeaProjects\\social_network\\src\\main\\resources\\static\\BD_images\\Диаграмма без названия.drawio.png");
         user.setCreatedAt(LocalDateTime.now());
-//        user.setAboutMe("Software Developer");
+        user.setAboutMe("Software Developer");
         user.setFirstName("John"); // Установите значение для firstName
         user.setLastName("Doe");
         studentDao.save(user);
