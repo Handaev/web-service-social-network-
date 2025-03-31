@@ -1,5 +1,20 @@
 package com.example.social_network.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.social_network.entities.User;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<User, Long> {}
+import java.util.List;
+
+@Repository
+public interface UserRepository {
+
+    List<User> findAll();
+
+    User findById(int id);
+
+    User save(User account);
+
+    void update(User user);
+
+    void deleteById(int id);
+}
