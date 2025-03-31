@@ -1,18 +1,19 @@
 //package com.example.social_network.services;
 //
 //import com.example.social_network.entities.User;
-//import com.example.social_network.repository.UserRepository;
-//import org.springframework.beans.factory.annotation.Autowired;
+//import com.example.social_network.repository.UserRepositoryDAO;
 //import org.springframework.stereotype.Service;
 //
 //import java.util.List;
-//import java.util.Optional;
 //
 //@Service
 //public class UserService {
 //
-//    @Autowired
-//    private UserRepository userRepository;
+//    private final UserRepositoryDAO userRepository;
+//
+//    public  UserService(UserRepositoryDAO userRepository){
+//        this.userRepository = userRepository;
+//    }
 //
 //    public List<User> getAllUsers() {
 //        return userRepository.findAll();

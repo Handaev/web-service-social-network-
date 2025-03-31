@@ -1,16 +1,20 @@
 package com.example.social_network.repository;
 
 import com.example.social_network.entities.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface UserRepository{
+@Repository
+public interface UserRepository {
 
     List<User> findAll();
 
     User findById(int id);
 
-    void save(User account);
+    User save(User account);
+
+    void update(User user);
 
     void deleteById(int id);
 }

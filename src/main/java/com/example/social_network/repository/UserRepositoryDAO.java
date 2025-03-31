@@ -1,10 +1,9 @@
 package com.example.social_network.repository;
 
 import com.example.social_network.entities.User;
+import jakarta.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,8 +13,11 @@ import java.util.List;
 @Transactional
 public class UserRepositoryDAO implements UserRepository{
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
+
+    public UserRepositoryDAO(SessionFactory sessionFactory){
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public List<User> findAll() {
@@ -30,11 +32,12 @@ public class UserRepositoryDAO implements UserRepository{
     }
 
     @Override
-    public void save(User user) {
+    public User save(User user) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(user);
+        return (User) session.save(user);
     }
 
+    @Override
     public void update(User user) {
         Session session = sessionFactory.getCurrentSession();
         session.update(user);

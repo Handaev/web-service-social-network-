@@ -24,10 +24,10 @@
 //        return userService.getUserById(id);
 //    }
 //
-//    @PostMapping
-//    public User createUser(@RequestBody User user) {
-//        return userService.createUser(user);
-//    }
+////    @PostMapping
+////    public User createUser(@RequestBody User user) {
+////        return userService.createUser(user);
+////    }
 //
 //    @DeleteMapping("/{id}")
 //    public void deleteUser(@PathVariable int id) {
