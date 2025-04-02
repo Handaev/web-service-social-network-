@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RegistrationDAO extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 //    @Query("SELECT * FROM Users as u WHERE u.email = :email")
     User findByEmail(@Param("email") String email);

@@ -46,7 +46,6 @@ public class User {
     private boolean isActive = true;
 
 
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Post> posts = new ArrayList<>();
 
