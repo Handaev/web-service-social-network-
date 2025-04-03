@@ -1,13 +1,9 @@
 package com.example.social_network.entities;
 
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
-
 import java.time.LocalDateTime;
-
-
 
 @Entity
 @Table(name = "comments")

@@ -3,6 +3,7 @@ package com.example.social_network.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -31,6 +32,7 @@ public class User {
     private String email;
 
     @NotBlank
+    @Pattern(regexp = "^(?=.*[0-9]).{8,}$", message = "Password must be at least 8 characters long and contain at least one digit")
     @Column(nullable = false)
     private String password;
 
@@ -45,10 +47,8 @@ public class User {
     @Column(name = "is_active")
     private boolean isActive = true;
 
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Post> posts = new ArrayList<>();
-
 
     @OneToMany(mappedBy = "follower", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Subscription> followers = new ArrayList<>();
@@ -56,17 +56,29 @@ public class User {
     @OneToMany(mappedBy = "following", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Subscription> following = new ArrayList<>();
 
-
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Message> sentMessages = new ArrayList<>();
 
     @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Message> receivedMessages = new ArrayList<>();
 
-
-
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", aboutMe='" + aboutMe + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", createdAt=" + createdAt +
+                ", isActive=" + isActive +
+                '}';
     }
 }
