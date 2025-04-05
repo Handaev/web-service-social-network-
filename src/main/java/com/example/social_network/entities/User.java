@@ -64,7 +64,10 @@ public class User {
     @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Message> receivedMessages = new ArrayList<>();
 
-
+    public User(String email, String password){
+        this.email = email;
+        this.password = password;
+    }
 
     @PrePersist
     protected void onCreate() {
